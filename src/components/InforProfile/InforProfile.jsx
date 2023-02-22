@@ -8,7 +8,7 @@ import { toast } from 'react-toastify'
 
 const formState = {
   title: '',
-  tags: [],
+  tags: '',
   description: 'description'
 }
 export default function InforProfile() {
@@ -26,7 +26,7 @@ export default function InforProfile() {
     queryFn: profile.post
   })
   const postsData = posts?.data.posts
-
+  console.log(postsData)
   //select
   const animatedComponents = makeAnimated()
   const CaretDownIcon = () => {
@@ -94,6 +94,7 @@ export default function InforProfile() {
     setCheckEdit(false)
     setForm(value)
   }
+
   return (
     <>
       <form onSubmit={onSubmit}>
@@ -104,7 +105,7 @@ export default function InforProfile() {
             </button>
           ) : (
             <button className='rounded-[50px] border-[2px] border-transparent bg-purper px-[88px] py-[18px] text-[16px] font-bold leading-[25.6px] text-white hover:border-[2px] hover:border-[#2c4cdd]'>
-              Add new
+              Edit
             </button>
           )}
 
@@ -122,7 +123,7 @@ export default function InforProfile() {
               onChange={(selected) =>
                 setForm((prev) => ({
                   ...prev,
-                  tags: selected
+                  tags: selected.length === 1 ? selected.map((item) => item.value) : selected[0].value
                 }))
               }
               styles={colourStyles}
@@ -159,7 +160,7 @@ export default function InforProfile() {
       <table className='w-[1356px] border-collapse border-[#000000] bg-[#D9D9D9] text-[20px] font-normal leading-[24px]'>
         <tbody>
           {postsData &&
-            postsData.map((value, index) => (
+            postsData?.map((value, index) => (
               <tr className='h-[49px]' key={value.id}>
                 <td className='min-w-[127px] border border-[#000000] p-3 pl-[44px]'>{index + 1}</td>
                 <td className='min-w-[358px] border border-[#000000] p-3 text-center'>{value.title}</td>

@@ -1,11 +1,11 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Header from '../Header/Header'
 import { useForm } from 'react-hook-form'
 import { auth } from '../../apis/auth'
 import { rules } from '../../Rule/Rule'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'react-toastify'
+import HeaderLogin from '../headerLogin/headerLogin'
 
 export default function SignIn() {
   const nav = useNavigate()
@@ -23,7 +23,7 @@ export default function SignIn() {
         localStorage.setItem('accessToken', data.data.accessToken)
         toast.success('Đăng nhập thành công')
         setTimeout(() => {
-          nav('/')
+          window.location.assign('/')
         }, 1000)
       },
       onError: () => {
@@ -34,7 +34,7 @@ export default function SignIn() {
 
   return (
     <>
-      <Header />
+      <HeaderLogin />
       <div className='m-auto mt-[209px] max-w-[413px]'>
         <h3 className='translate-x-[65px] text-[64px] font-normal leading-[102px] text-[#000000]'>Sign In</h3>
         <form onSubmit={onSubmit}>

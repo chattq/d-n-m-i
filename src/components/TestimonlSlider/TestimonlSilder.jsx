@@ -28,11 +28,11 @@ export default function TestimonlSilder() {
               key={item.id}
               className=' flex max-h-[330px] items-start gap-x-[30px] rounded-[20px] border bg-white px-[35px] pb-[50px]'
             >
-              <div>
+              <div className='clipPath mt-10'>
                 <img src={item.imageUrl} alt='' />
               </div>
-              <div>
-                <p className='max-w-[240px]'>{item.desctiption}</p>
+              <div className='mt-[155px] leading-[32px]'>
+                <p className=''>{item.desctiption}</p>
               </div>
             </SwiperSlide>
           )

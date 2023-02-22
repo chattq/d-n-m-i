@@ -2,18 +2,26 @@
 
 .swiper-horizontal > .swiper-pagination-bullets,
 .swiper-pagination-bullets.swiper-pagination-horizontal {
-  width: 50%;
+  width: 100%;
 }
 
 .swiper-pagination-bullet-active {
   background-color: #f063b8 !important;
+  height: 10px;
+  width: 10px;
+  border-radius: 100%;
 }
 
 .swiper-pagination-bullet {
-  background-color: rgb(186, 21, 21);
+  background-color: white;
   opacity: 1;
+  height: 5px;
+  width: 5px;
+  border-radius: 100%;
 }
-.swiper-button-next {
+.swiper-button-prev {
+  height: 15px;
+  width: 15px;
   background-image: url('./Image/next.png');
   background-repeat: no-repeat;
   background-size: 100% auto;
@@ -32,4 +40,14 @@
 
 .swiper-button-prev::after {
   display: none;
+}
+.clipPath {
+  clip-path: ellipse(24% 33% at 38% 53%);
+}
+.swiper-slide {
+  height: 330px;
+}
+.swiper-wrapper {
+  display: flex;
+  align-items: center;
 }
